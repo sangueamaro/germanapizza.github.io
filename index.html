@@ -3,9 +3,10 @@
 <head>
   <title>Devis Pizzamaker</title>
   <style>
-    @font-face {
-      font-family: 'Roboto';
-      src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Add the link to Roboto font */
+    @import url('https://fonts.googleapis.com/css2?family=Bahnschrift&display=swap');
+
+    * {
+      font-family: "Bahnschrift", Arial, sans-serif;
     }
 
     body {
@@ -13,7 +14,6 @@
       padding: 0;
       background-image: url("immagini/pattern.svg");
       background-size: cover;
-      font-family: "Roboto", Arial, sans-serif; /* Use Roboto font */
     }
     
     .container {
@@ -21,9 +21,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: calc(100vh - 60px); /* Subtracting height of navigation bar */
+      height: calc(100vh - 60px);
       padding: 20px;
-      border-bottom: 10px dotted #E0DEE2; /* Adjust the size of the dotted line */
     }
     
     .title {
@@ -37,16 +36,15 @@
     .title::before {
       content: "";
       position: absolute;
-      top: -10px; /* Extend the image above the text */
-      left: -10px; /* Extend the image beyond the text */
-      right: -10px; /* Extend the image beyond the text */
-      bottom: -10px; /* Extend the image below the text */
-      /* background-image: url("immagini/dietrotesto.png"); */ /* Remove the background image */
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
       background-size: cover;
       z-index: -1;
       opacity: 0.5;
-      pointer-events: none; /* Make the image "transparent" to pointer events */
-      filter: blur(10px); /* Add a blur effect around the borders */
+      pointer-events: none;
+      filter: blur(10px);
     }
     
     .buttons {
@@ -88,8 +86,6 @@
       background-color: rgba(0, 0, 0, 0.5);
     }
     
-    /* Navigation Bar Styles */
-    
     .navbar {
       background-color: #232323;
       display: flex;
@@ -116,7 +112,7 @@
     }
     
     .navbar-item.active a {
-      color: #39C672; /* Updated color for active button */
+      color: #39C672;
     }
     
     .navbar-item.active::after {
@@ -127,7 +123,7 @@
       transform: translateX(-50%);
       width: 10px;
       height: 10px;
-      background-color: #39C672; /* Updated color for active button */
+      background-color: #39C672;
       border-radius: 50%;
       animation: downAnimation 1s ease-in-out;
     }
@@ -149,7 +145,6 @@
       justify-content: space-around;
       width: 80%;
       max-width: 1200px;
-      border-bottom: 10px dotted #E0DEE2; /* Adjust the size of the dotted line */
     }
     
     .gallery {
@@ -180,7 +175,7 @@
     .gallery-text p {
       margin-bottom: 20px;
       text-align: justify;
-      font-size: 18px; /* Increased font size */
+      font-size: 18px;
     }
     
     .contacts-section {
@@ -189,10 +184,9 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background-color: rgba(57, 198, 114, 0.6); /* Rounded square color with 60% transparency */
+      background-color: rgba(57, 198, 114, 0.6);
       border-radius: 20px;
       margin-top: 20px;
-      /* border-bottom: none; */ /* Remove the dotted line from the bottom of the contacts section */
     }
     
     .contacts-title {
@@ -229,29 +223,26 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background-color: rgba(35, 35, 35, 0.5); /* Solid block of #232323 color with 50% transparency */
+      background-color: rgba(35, 35, 35, 0.5);
       border-radius: 0;
       margin-top: 20px;
-      /* border-bottom: none; */ /* Remove the dotted line from the bottom of the contacts section */
       position: relative;
     }
     
     .tecnica-title {
       font-size: 24px;
-      color: #E0DEE2; /* Change the color to #E0DEE2 */
+      color: #E0DEE2;
       text-align: center;
       margin-bottom: 10px;
-      font-family: "Roboto", Arial, sans-serif; /* Use Roboto font */
     }
     
     .card-turner {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      max-width: 800px;
-      height: 200px;
-      background-color: rgba(35, 35, 35, 0.5); /* Solid block of #232323 color with 50% transparency */
+      width: 820px;
+      height: 320px;
+      background-color: rgba(35, 35, 35, 0.5);
       color: #E0DEE2;
       font-size: 24px;
       margin-top: 20px;
@@ -265,20 +256,19 @@
       left: 0;
       width: 100%;
       height: 100%;
-      display: none; /* Hide all cards by default */
+      display: none;
       align-items: center;
       justify-content: center;
       backface-visibility: hidden;
     }
     
     .card-turner .card.active {
-      display: flex; /* Display the active card */
+      display: flex;
     }
     
     .card-turner .card .page {
       padding: 20px;
       text-align: center;
-      font-family: "Roboto", Arial, sans-serif; /* Use Roboto font */
     }
     
     .buttons {
@@ -296,29 +286,51 @@
       font-weight: bold;
       border: 2px solid #61D18E;
       border-radius: 0;
-      font-family: "Roboto", Arial, sans-serif; /* Use Roboto font */
-      transition: none; /* Remove the transition effect */
+      transition: none;
     }
     
     .page-counter {
       position: absolute;
       top: 0;
       left: 0;
-      transform: translate(10px, 10px); /* Add translation to the top-left corner */
-      color: #E0DEE2; /* Change the color to #E0DEE2 */
+      transform: translate(10px, 10px);
+      color: #E0DEE2;
       font-size: 24px;
-      font-family: "Roboto", Arial, sans-serif; /* Use Roboto font */
     }
     
-    /* ... existing styles ... */
+    .section-divider {
+      height: 1px;
+      background-color: #CFCFCF;
+      width: 100%;
+    }
+
+    /* Mobile-friendly styles for card turner */
+    @media screen and (max-width: 768px) {
+      .card-turner {
+        height: auto;
+      }
+
+      .card-turner .card .page {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        margin: 10px 0;
+      }
+    }
+
   </style>
 </head>
 <body>
   <div class="navbar">
-    <div class="navbar-item active"><a href="index.html">Home</a></div>
-    <div class="navbar-item"><a href="storia.html">Storia</a></div>
-    <div class="navbar-item"><a href="tecnica.html">Tecnica</a></div>
-    <div class="navbar-item"><a href="contatti.html">Contatti</a></div>
+    <div class="navbar-item" onclick="scrollToSection('home')"><a href="#">Home</a></div>
+    <div class="navbar-item" onclick="scrollToSection('gallery')"><a href="#">Chi sono io?</a></div>
+    <div class="navbar-item" onclick="scrollToSection('tecnica')"><a href="#">Qual'è la mia tecnica</a></div>
+    <div class="navbar-item" onclick="scrollToSection('contatti')"><a href="#">Scrivimi!</a></div>
   </div>
   
   <div class="container">
@@ -329,26 +341,27 @@
     </div>
   </div>
   
-  <div class="container">
+  <div class="section-divider"></div>
+  
+  <div class="container" id="home">
     <div class="main-content">
       <div class="gallery">
         <img src="immagini/image1.png" alt="Image 1">
         <img src="immagini/image2.png" alt="Image 2">
         <img src="immagini/image3.png" alt="Image 3">
-        <!-- Add more images if necessary -->
       </div>
   
       <div class="gallery-text">
         <h1 class="title">Chi sono io?</h1>
-        <p style="font-size: 20px;">Pino D'Angiò, voce melodiosa,<br>
+        <p>Pino D'Angiò, voce melodiosa,<br>
         Note che sciolgono l'anima, armonia gioiosa.<br>
         Con il tuo canto, ci hai fatto sognare,<br>
         Ballare, emozionare, farci vibrare.</p>
-        <p style="font-size: 20px;">In ogni brano, la tua passione si espande,<br>
+        <p>In ogni brano, la tua passione si espande,<br>
         Note fluide, parole che incantano, grandi melodie che si fanno grande.<br>
         La tua voce, come uno strumento divino,<br>
         Ci accompagna, ci guida, ci fa sentire meno soli.</p>
-        <p style="font-size: 20px;">Pino D'Angiò, simbolo di talento e bravura,<br>
+        <p>Pino D'Angiò, simbolo di talento e bravura,<br>
         Il tuo nome risuona, nella storia della musica con chiarezza pura.<br>
         Grazie per le emozioni che ci hai donato,<br>
         Con la tua voce, nel cuore sarai sempre ricordato.</p>
@@ -356,7 +369,9 @@
     </div>
   </div>
   
-  <div class="container">
+  <div class="section-divider"></div>
+  
+  <div class="container" id="tecnica">
     <div class="tecnica-section">
       <h1 class="tecnica-title">Qual'è la mia tecnica</h1>
       <div class="card-turner">
@@ -377,11 +392,13 @@
         <button class="button go-back">Go Back</button>
         <button class="button go-forward">Go Forward</button>
       </div>
-      <div class="page-counter">1 / 4</div> <!-- Move the page counter inside the tecnica-section -->
+      <div class="page-counter">1 / 4</div>
     </div>
   </div>
   
-  <div class="container">
+  <div class="section-divider"></div>
+  
+  <div class="container" id="contatti">
     <div class="contacts-section">
       <h1 class="contacts-title">Scrivimi!</h1>
       <div class="contact-info">
@@ -396,7 +413,6 @@
         <span class="contact-label">Social Media:</span>
         <a href="https://www.facebook.com/yourprofile" class="contact-link">Facebook</a>
         <a href="https://www.instagram.com/yourprofile" class="contact-link">Instagram</a>
-        <!-- Add additional contact links if needed -->
       </div>
     </div>
   </div>
@@ -440,8 +456,14 @@
         }
       });
       
-      navigateToCard(0); // Show the first card initially
+      navigateToCard(0);
     });
+
+    // JavaScript code for scrolling to sections
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
