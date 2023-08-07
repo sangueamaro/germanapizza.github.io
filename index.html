@@ -128,8 +128,8 @@
     .contacts-section {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: left;
+      justify-content: left;
       padding: 20px;
       background-color: rgba(57, 198, 114, 0.6);
       border-radius: 20px;
@@ -139,7 +139,7 @@
     .contacts-title {
       font-size: 24px;
       color: #E0DEE2;
-      text-align: center;
+      text-align: left;
       margin-bottom: 10px;
     }
 
@@ -293,7 +293,7 @@
 
       <div class="gallery-text">
         <h1 class="title">Chi sono io?</h1>
-        <p>Pino D'Angiò, voce melodiosa,<br>
+        <p>Pino D'AngiÃ², voce melodiosa,<br>
         Note che sciolgono l'anima, armonia gioiosa.<br>
         Con il tuo canto, ci hai fatto sognare,<br>
         Ballare, emozionare, farci vibrare.</p>
@@ -301,7 +301,7 @@
         Note fluide, parole che incantano, grandi melodie che si fanno grande.<br>
         La tua voce, come uno strumento divino,<br>
         Ci accompagna, ci guida, ci fa sentire meno soli.</p>
-        <p>Pino D'Angiò, simbolo di talento e bravura,<br>
+        <p>Pino D'AngiÃ², simbolo di talento e bravura,<br>
         Il tuo nome risuona, nella storia della musica con chiarezza pura.<br>
         Grazie per le emozioni che ci hai donato,<br>
         Con la tua voce, nel cuore sarai sempre ricordato.</p>
@@ -313,26 +313,26 @@
 
   <div class="container" id="tecnica">
     <div class="tecnica-section">
-      <h1 class="tecnica-title">Qual'è la mia tecnica</h1>
+      <h1 class="tecnica-title">Qual'Ã¨ la mia tecnica</h1>
       <div class="card-turner">
-        <div class="card active">
-          <div class="page">Page 1 - Content (up to 2000 characters)</div>
+        <div class="card">
+          <div class="page">ciolla...</div>
         </div>
         <div class="card">
-          <div class="page">Page 2 - Content (up to 2000 characters)</div>
+          <div class="page">pusiddu...</div>
         </div>
         <div class="card">
-          <div class="page">Page 3 - Content (up to 2000 characters)</div>
+          <div class="page">nerchia...</div>
         </div>
         <div class="card">
-          <div class="page">Page 4 - Content (up to 2000 characters)</div>
+          <div class="page">stigliu...</div>
         </div>
       </div>
       <div class="buttons">
-        <button class="button go-back">Go Back</button>
-        <button class="button go-forward">Go Forward</button>
+        <button class="button go-back">Indietro</button>
+        <button class="button go-forward">Avanti</button>
       </div>
-      <div class="page-counter">1 / 4</div>
+      <div class="page-counter"></div>
     </div>
   </div>
 
@@ -357,10 +357,8 @@
     </div>
   </div>
 
-  <!-- JavaScript code... -->
 
   <script>
-    // JavaScript code for card-turner navigation
     document.addEventListener('DOMContentLoaded', function() {
       const cardTurner = document.querySelector('.card-turner');
       const cards = Array.from(cardTurner.querySelectorAll('.card'));
@@ -381,7 +379,7 @@
 
         currentCardIndex = index;
 
-        pageCounter.textContent = `${currentCardIndex + 1} / ${cards.length}`;
+        pageCounter.textContent = `${currentCardIndex + 1} di ${cards.length}`;
       }
 
       goBackButton.addEventListener('click', () => {
@@ -398,12 +396,68 @@
 
       navigateToCard(0);
     });
-
-    // JavaScript code for scrolling to sections
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let clickCount = 0;
+    let timeoutId;
+
+    function showLargeImage() {
+
+      const largeImage = new Image();
+      largeImage.src = 'ciolla/pinosperto.png';
+
+      largeImage.style.position = 'fixed';
+      largeImage.style.top = '0';
+      largeImage.style.left = '0';
+      largeImage.style.width = '100%';
+      largeImage.style.height = '100%';
+      largeImage.style.zIndex = '9999';
+      largeImage.style.opacity = '0';
+
+
+      document.body.appendChild(largeImage);
+
+
+      const fadeInAnimation = largeImage.animate([{ opacity: '0' }, { opacity: '1' }], { duration: 1000 });
+      fadeInAnimation.onfinish = function() {
+		setTimeout(() => {
+          const fadeOutAnimation = largeImage.animate([{ opacity: '1' }, { opacity: '0' }], { duration: 1000 });
+          fadeOutAnimation.onfinish = function() {
+
+            document.body.removeChild(largeImage);
+          };
+        }, 2000);
+      };
+    }
+
+
+    function playSound() {
+      const audio = new Audio('ciolla/tututututum.mp3');
+      audio.play();
+    }
+
+
+    function resetClickCount() {
+      clickCount = 0;
+    }
+
+
+    function handleDevisPizzamakerClick() {
+
+      clickCount++;
+      if (clickCount === 5) {
+
+        showLargeImage();
+        playSound();
+
+        timeoutId = setTimeout(resetClickCount, 2000);
+      }
+    }
+
+    const devisPizzamakerText = document.querySelector('.title');
+    devisPizzamakerText.addEventListener('click', handleDevisPizzamakerClick);
+  });
+</script>
 </body>
 </html>
